@@ -6,7 +6,7 @@
 /*   By: zeyildir <zeyildir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/22 17:00:48 by zeyildir          #+#    #+#             */
-/*   Updated: 2025/10/31 18:23:01 by zeyildir         ###   ########.fr       */
+/*   Updated: 2025/10/31 19:03:40 by zeyildir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,5 +64,7 @@ long				*parse_input(char **av, int *count);
 t_list				**init_stack_a(long *rt, int count);
 t_list				**init_stack_b(void);
 void				free_stack(t_list **stack);
+int					null_check(char **av);
+
 
 #endif

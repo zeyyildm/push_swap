@@ -6,7 +6,7 @@
 /*   By: zeyildir <zeyildir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/28 19:22:28 by zeyildir          #+#    #+#             */
-/*   Updated: 2025/10/31 18:33:20 by zeyildir         ###   ########.fr       */
+/*   Updated: 2025/10/31 19:11:20 by zeyildir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,24 @@ static char	*concat_args(char **av)
 	return (storage);
 }
 
+static void	parser(char **tmp, long *rt, char *storage)
+{
+	int	i;
+
+	i = -1;
+
+	while (tmp[++i])
+	{
+		rt[i] = ft_atol(tmp[i]);
+		if (rt[i] == -2147483648)
+		{
+			write(1, "Error\n", 6);
+			free_atol(storage, tmp, rt);
+			exit(1);
+		}
+	}
+}
+
 long	*parse_input(char **av, int *count)
 {
 	char	*storage;
@@ -68,20 +86,10 @@ long	*parse_input(char **av, int *count)
 	rt = malloc(i * sizeof(long));
 	if (!rt)
 		exit(1);
-	i = -1;
-	while (tmp[++i])
-	{
-		rt[i] = ft_atol(tmp[i]);
-		if(rt[i] == -2147483648)
-		{
-			write(1, "Error\n",6);
-			free_atol(storage,tmp,rt);
-			exit(1);
-		}
-	}
+	parser(tmp, rt, storage);
 	is_duplicate(rt, *count, tmp, storage);
 	i = -1;
-	while(tmp[++i])
+	while (tmp[++i])
 		free(tmp[i]);
 	free(tmp);
 	free(storage);

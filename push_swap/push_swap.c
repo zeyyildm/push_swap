@@ -6,7 +6,7 @@
 /*   By: zeyildir <zeyildir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/22 17:00:05 by zeyildir          #+#    #+#             */
-/*   Updated: 2025/10/28 20:15:24 by zeyildir         ###   ########.fr       */
+/*   Updated: 2025/10/31 18:22:10 by zeyildir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,13 @@ int	main(int ac, char *av[])
 	stack_a = init_stack_a(rt, count);
 	stack_b = init_stack_b();
 	if (ft_lstsize(*stack_a) <= 3)
-		return (sort_small(stack_a), 0);
+	{
+		sort_small(stack_a);
+		free(rt);
+		free_stack(stack_a);
+		free_stack(stack_b);
+		return (0);
+	}
 	sort_large(stack_a, stack_b);
 	final_rotate(stack_a, stack_b);
 	free(rt);

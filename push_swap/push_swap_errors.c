@@ -6,13 +6,33 @@
 /*   By: zeyildir <zeyildir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/22 16:56:50 by zeyildir          #+#    #+#             */
-/*   Updated: 2025/10/22 18:10:23 by zeyildir         ###   ########.fr       */
+/*   Updated: 2025/10/31 18:24:24 by zeyildir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	is_duplicate(long *n, int counter)
+static	void	free_duplicate(char *storage, char **tmp, long *n)
+{
+	int	i;
+
+	i = 0;
+	if (tmp)
+	{
+		while (tmp[i])
+		{
+			free(tmp[i]);
+			i++;
+		}
+		free(tmp);
+	}
+	if (storage)
+		free(storage);
+	if (n)
+		free(n);
+}
+
+void	is_duplicate(long *n, int counter, char **tmp, char *storage)
 {
 	int	i;
 	int	j;
@@ -25,6 +45,7 @@ void	is_duplicate(long *n, int counter)
 		{
 			if (n[i] == n[j])
 			{
+				free_duplicate(storage, tmp, n);
 				write(2, "Error\n", 6);
 				exit(1);
 			}

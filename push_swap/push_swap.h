@@ -6,7 +6,7 @@
 /*   By: zeyildir <zeyildir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/22 17:00:48 by zeyildir          #+#    #+#             */
-/*   Updated: 2025/10/28 19:53:12 by zeyildir         ###   ########.fr       */
+/*   Updated: 2025/10/31 18:23:01 by zeyildir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void				rra(t_list **stack_a, int flag);
 void				rrb(t_list **stack_b, int flag);
 void				rrr(t_list **stack_a, t_list **stack_b);
 long				ft_atol(char *s);
-void				is_duplicate(long *n, int counter);
+void				is_duplicate(long *n, int counter, char **tmp, char *storage);
 char				*ft_strjoin2(char const *s1, char const *s2);
 int					find_cost(t_list *stack, int target_index);
 void				push_top_two(t_list **stack_a, t_list **stack_b);

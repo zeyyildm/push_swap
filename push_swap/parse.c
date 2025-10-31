@@ -6,11 +6,31 @@
 /*   By: zeyildir <zeyildir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/28 19:22:28 by zeyildir          #+#    #+#             */
-/*   Updated: 2025/10/28 20:02:35 by zeyildir         ###   ########.fr       */
+/*   Updated: 2025/10/31 18:33:20 by zeyildir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+static	void	free_atol(char *storage, char **tmp, long *n)
+{
+	int	i;
+
+	i = 0;
+	if (tmp)
+	{
+		while (tmp[i])
+		{
+			free(tmp[i]);
+			i++;
+		}
+		free(tmp);
+	}
+	if (storage)
+		free(storage);
+	if (n)
+		free(n);
+}
 
 static char	*concat_args(char **av)
 {
@@ -50,8 +70,16 @@ long	*parse_input(char **av, int *count)
 		exit(1);
 	i = -1;
 	while (tmp[++i])
+	{
 		rt[i] = ft_atol(tmp[i]);
-	is_duplicate(rt, *count);
+		if(rt[i] == -2147483648)
+		{
+			write(1, "Error\n",6);
+			free_atol(storage,tmp,rt);
+			exit(1);
+		}
+	}
+	is_duplicate(rt, *count, tmp, storage);
 	i = -1;
 	while(tmp[++i])
 		free(tmp[i]);

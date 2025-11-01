@@ -6,7 +6,7 @@
 /*   By: zeyildir <zeyildir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/28 19:22:28 by zeyildir          #+#    #+#             */
-/*   Updated: 2025/10/31 19:11:20 by zeyildir         ###   ########.fr       */
+/*   Updated: 2025/11/01 18:11:44 by zeyildir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,6 @@ static void	parser(char **tmp, long *rt, char *storage)
 	int	i;
 
 	i = -1;
-
 	while (tmp[++i])
 	{
 		rt[i] = ft_atol(tmp[i]);
@@ -94,35 +93,4 @@ long	*parse_input(char **av, int *count)
 	free(tmp);
 	free(storage);
 	return (rt);
-}
-
-t_list	**init_stack_a(long *rt, int count)
-{
-	t_list	**stack_a;
-	t_list	*node;
-	int		i;
-
-	stack_a = malloc(sizeof(t_list *));
-	if (!stack_a)
-		exit(1);
-	*stack_a = NULL;
-	i = 0;
-	while (i < count)
-	{
-		node = ft_lstnew(rt[i]);
-		ft_lstadd_back(stack_a, node);
-		i++;
-	}
-	return (stack_a);
-}
-
-t_list	**init_stack_b(void)
-{
-	t_list	**stack_b;
-
-	stack_b = malloc(sizeof(t_list *));
-	if (!stack_b)
-		exit(1);
-	*stack_b = NULL;
-	return (stack_b);
 }

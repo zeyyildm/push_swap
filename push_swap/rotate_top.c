@@ -6,7 +6,7 @@
 /*   By: zeyildir <zeyildir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/22 17:15:41 by zeyildir          #+#    #+#             */
-/*   Updated: 2025/10/28 19:38:40 by zeyildir         ###   ########.fr       */
+/*   Updated: 2025/11/01 18:12:04 by zeyildir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void	rotate_b_to_top(t_list **stack_b, int target)
 	{
 		while (target > 0)
 		{
-			rb(stack_b,1);
+			rb(stack_b, 1);
 			target--;
 		}
 	}
@@ -56,7 +56,7 @@ void	rotate_b_to_top(t_list **stack_b, int target)
 		reverse = s_size - target;
 		while (reverse > 0)
 		{
-			rrb(stack_b,1);
+			rrb(stack_b, 1);
 			reverse--;
 		}
 	}
@@ -73,9 +73,9 @@ static void	rotate_both_up(t_list **stack_a, t_list **stack_b,
 		index--;
 	}
 	while (target-- > 0)
-		rb(stack_b,1);
+		rb(stack_b, 1);
 	while (index-- > 0)
-		ra(stack_a,1);
+		ra(stack_a, 1);
 }
 
 static void	rotate_both_down(t_list **stack_a, t_list **stack_b,
@@ -90,7 +90,7 @@ static void	rotate_both_down(t_list **stack_a, t_list **stack_b,
 	while (reverse-- > 0)
 		rra(stack_a, 1);
 	while (reverse2-- > 0)
-		rrb(stack_b,1);
+		rrb(stack_b, 1);
 }
 
 void	rotate_mixed(t_list **stack_a, t_list **stack_b,

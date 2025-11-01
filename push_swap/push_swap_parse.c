@@ -6,7 +6,7 @@
 /*   By: zeyildir <zeyildir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/22 16:57:18 by zeyildir          #+#    #+#             */
-/*   Updated: 2025/10/31 18:30:08 by zeyildir         ###   ########.fr       */
+/*   Updated: 2025/11/01 18:11:51 by zeyildir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,13 +34,11 @@ long	ft_atol(char *s)
 		result = (result * 10) + (s[i] - '0');
 		i++;
 	}
-	if ((sign == 1 && result >= 2147483647) || (sign == -1
-			&& result >= 2147483648) || (!(s[i] >= '0' && s[i] <= '9')
-			&& s[i] != '\0'))
+	if ((result >= INT_MAX) || (result <= INT_MIN) || (!(s[i] >= '0'
+				&& s[i] <= '9') && s[i] != '\0'))
 		return (-2147483648);
 	return (result * sign);
 }
-
 
 char	*ft_strjoin2(char const *s1, char const *s2)
 {

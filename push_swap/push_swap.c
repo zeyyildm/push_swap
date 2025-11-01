@@ -6,7 +6,7 @@
 /*   By: zeyildir <zeyildir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/22 17:00:05 by zeyildir          #+#    #+#             */
-/*   Updated: 2025/10/31 19:13:29 by zeyildir         ###   ########.fr       */
+/*   Updated: 2025/11/01 18:11:55 by zeyildir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,21 +61,22 @@ void	final_rotate(t_list **stack_a, t_list **stack_b)
 	}
 	rotate_a_to_top(stack_a, min_index);
 }
-int is_sorted(long *rt,int count)
+
+int	is_sorted(long *rt, int count)
 {
-	int i;
-	int j;
-	
+	int	i;
+	int	j;
+
 	j = 1;
 	i = 0;
 	while (i < count - 1)
 	{
-		if(rt[i] > rt[j])
-			return 0;
+		if (rt[i] > rt[j])
+			return (0);
 		i++;
 		j++;
 	}
-	return 1;
+	return (1);
 }
 
 int	main(int ac, char *av[])
@@ -87,10 +88,9 @@ int	main(int ac, char *av[])
 
 	if (ac < 2 || null_check(av))
 		return (0);
-
 	rt = parse_input(av, &count);
-	if(is_sorted(rt,count))
-		return (free(rt), 0);		
+	if (is_sorted(rt, count))
+		return (free(rt), 0);
 	stack_a = init_stack_a(rt, count);
 	stack_b = init_stack_b();
 	if (ft_lstsize(*stack_a) <= 3)
@@ -104,5 +104,5 @@ int	main(int ac, char *av[])
 	final_rotate(stack_a, stack_b);
 	free_stack(stack_a);
 	free_stack(stack_b);
-	return (free(rt),0);
+	return (free(rt), 0);
 }

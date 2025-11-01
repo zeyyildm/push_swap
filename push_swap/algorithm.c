@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   turk_algo.c                                        :+:      :+:    :+:   */
+/*   algorithm.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zeyildir <zeyildir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/22 17:01:38 by zeyildir          #+#    #+#             */
-/*   Updated: 2025/10/28 19:38:31 by zeyildir         ###   ########.fr       */
+/*   Updated: 2025/11/01 18:11:29 by zeyildir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ void	sort_a_end(t_list **stack_a)
 	if (((*stack_a)->next->data) < ((*stack_a)->data))
 		sa(stack_a);
 	if ((*stack_a)->next->next->data < (*stack_a)->data)
-		rra(stack_a,1);
+		rra(stack_a, 1);
 	if ((*stack_a)->next->data > (*stack_a)->next->next->data)
 	{
 		sa(stack_a);

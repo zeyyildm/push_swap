@@ -6,7 +6,7 @@
 /*   By: zeyildir <zeyildir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/22 17:14:19 by zeyildir          #+#    #+#             */
-/*   Updated: 2025/10/28 19:37:23 by zeyildir         ###   ########.fr       */
+/*   Updated: 2025/11/01 18:11:59 by zeyildir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,9 @@
 
 void	rr(t_list **stack_a, t_list **stack_b)
 {
-	ra(stack_a,0);
-	rb(stack_b,0);
-	
-	write(1,"rr\n",3);
+	ra(stack_a, 0);
+	rb(stack_b, 0);
+	write(1, "rr\n", 3);
 }
 
 void	rra(t_list **stack_a, int flag)
@@ -35,8 +34,8 @@ void	rra(t_list **stack_a, int flag)
 	temp2 = temp->next;
 	temp->next = NULL;
 	ft_lstadd_front(stack_a, temp2);
-	if(flag)
-		write(1,"rra\n",4);
+	if (flag)
+		write(1, "rra\n", 4);
 }
 
 void	rrb(t_list **stack_b, int flag)
@@ -52,14 +51,13 @@ void	rrb(t_list **stack_b, int flag)
 	temp2 = temp->next;
 	temp->next = NULL;
 	ft_lstadd_front(stack_b, temp2);
-	if(flag)
-		write(1,"rrb\n",4);
+	if (flag)
+		write(1, "rrb\n", 4);
 }
 
 void	rrr(t_list **stack_a, t_list **stack_b)
 {
-	rra(stack_a,0);
-	rrb(stack_b,0);
-	
-	write(1,"rrr\n",4);
+	rra(stack_a, 0);
+	rrb(stack_b, 0);
+	write(1, "rrr\n", 4);
 }

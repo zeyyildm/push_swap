@@ -7,7 +7,7 @@
 
 ## 📝 Description
 
-Push Swap is an algorithmic project that sorts a stack of integers using two stacks (A and B) with a limited set of operations. The goal is to sort the numbers in ascending order using the minimum number of operations possible.
+Push Swap is an algorithmic project that sorts a stack of integers using two stacks (A and B) with a limited set of operations. The goal is to sort the numbers in ascending order using the minimum number of operations possible. 
 
 ## ✨ Features
 
